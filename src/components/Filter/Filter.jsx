@@ -1,7 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { filterContacts } from '../../Redux/Filter/filter-slice';
+import { useDispatch } from 'react-redux';
 
-export const Filter = ({ onFilter }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
+  const handleChange = value => dispatch(filterContacts(value));
+
   return (
     <label>
       <span>Find contacts by name</span>
@@ -9,10 +13,9 @@ export const Filter = ({ onFilter }) => {
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        onChange={e => onFilter(e.target.value)}
+        onChange={e => handleChange(e.target.value)}
       />
     </label>
   );
 };
 
-Filter.propTypes = { onFilter: PropTypes.func };
