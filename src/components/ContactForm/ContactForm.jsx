@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from '../../Redux/Contacts/contact-slice';
 import { getAllContacts } from '../../Redux/Contacts/contact-selectors';
@@ -62,4 +61,3 @@ export default function Form () {
   );
 };
 
-Form.propTypes = { onSubmit: PropTypes.func };
